@@ -1,0 +1,124 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+/// Aplica estilos desde el punto de quiebre indicado hacia arriba.
+/// @param {String} $nombre-punto-quiebre - Clave definida en $puntos-quiebre.
+@mixin desde-pantalla($nombre-punto-quiebre) {
+  @media (min-width: map.get($puntos-quiebre, $nombre-punto-quiebre)) {
+    @content;
+  }
+}
+
+/// Contorno de foco visible y accesible (WCAG 2.4.7 y 2.4.11).
+@mixin foco-visible {
+  &:focus-visible {
+    outline: 3px solid var(--color-foco);
+    outline-offset: 2px;
+  }
+}
+
+/// Base común de todos los botones.
+@mixin boton-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $espaciado-sm;
+  min-height: 2.75rem;
+  padding: $espaciado-sm $espaciado-md;
+  border: 1px solid transparent;
+  border-radius: $radio-borde;
+  font: inherit;
+  font-weight: $peso-medio;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color $duracion-transicion ease,
+    border-color $duracion-transicion ease;
+
+  @include foco-visible;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/// Estilo base del botón de acción principal, con foco visible accesible.
+@mixin boton-primario {
+  @include boton-base;
+  background: var(--color-primario);
+  color: var(--color-texto-sobre-primario);
+
+  &:hover:not(:disabled) {
+    background: var(--color-primario-hover);
+  }
+}
+
+/// Botón de acción secundaria con borde.
+@mixin boton-secundario {
+  @include boton-base;
+  border-color: var(--color-borde-fuerte);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+
+  &:hover:not(:disabled) {
+    background: var(--color-superficie-hover);
+  }
+}
+
+/// Botón para acciones destructivas.
+@mixin boton-peligro {
+  @include boton-base;
+  background: var(--color-peligro);
+  color: var(--color-texto-sobre-peligro);
+
+  &:hover:not(:disabled) {
+    background: var(--color-peligro-hover);
+  }
+}
+
+/// Superficie elevada para tarjetas y paneles.
+@mixin tarjeta {
+  padding: $espaciado-md;
+  border: 1px solid var(--color-borde);
+  border-radius: $radio-borde-lg;
+  background: var(--color-superficie);
+  box-shadow: var(--sombra-tarjeta);
+
+  @include desde-pantalla(tablet) {
+    padding: $espaciado-lg;
+  }
+}
+
+/// Campo de formulario con borde, foco visible y estado inválido.
+@mixin campo-entrada {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: $espaciado-sm $espaciado-md;
+  border: 1px solid var(--color-borde-fuerte);
+  border-radius: $radio-borde;
+  background: var(--color-fondo-campo);
+  color: var(--color-texto);
+  font: inherit;
+
+  @include foco-visible;
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-error);
+    border-width: 2px;
+  }
+}
+
+/// Oculta un elemento visualmente pero lo mantiene para lectores de pantalla.
+@mixin visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

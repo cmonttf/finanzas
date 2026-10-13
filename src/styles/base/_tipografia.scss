@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+body {
+  font-family: $familia-tipografica;
+  font-size: $tamano-texto-md;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: $tamano-texto-xl;
+
+  @include desde-pantalla(tablet) {
+    font-size: $tamano-texto-xxl;
+  }
+}
+
+h2 {
+  font-size: $tamano-texto-lg;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--color-enlace);
+  text-underline-offset: 0.15em;
+
+  @include foco-visible;
+}
+
+.numero-tabular {
+  font-variant-numeric: tabular-nums;
+}

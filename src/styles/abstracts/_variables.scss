@@ -1,0 +1,35 @@
+// Tokens de diseño que no cambian con el tema. Los colores viven en temas/_temas.scss.
+
+$espaciado-xs: 0.25rem;
+$espaciado-sm: 0.5rem;
+$espaciado-md: 1rem;
+$espaciado-lg: 2rem;
+$espaciado-xl: 3rem;
+
+$familia-tipografica:
+  'Inter',
+  system-ui,
+  -apple-system,
+  'Segoe UI',
+  Roboto,
+  sans-serif;
+$tamano-texto-xs: 0.75rem;
+$tamano-texto-sm: 0.875rem;
+$tamano-texto-md: 1rem;
+$tamano-texto-lg: 1.25rem;
+$tamano-texto-xl: 1.75rem;
+$tamano-texto-xxl: 2.25rem;
+
+$peso-normal: 400;
+$peso-medio: 500;
+$peso-negrita: 700;
+
+$radio-borde: 0.5rem;
+$radio-borde-lg: 0.875rem;
+$ancho-maximo-contenido: 72rem;
+$duracion-transicion: 150ms;
+
+$puntos-quiebre: (
+  tablet: 768px,
+  escritorio: 1280px,
+);

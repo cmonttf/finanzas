@@ -1,0 +1,50 @@
+// Las abstracciones ($variables y mixins) llegan por additionalData en vite.config.ts.
+@use 'base/reset';
+@use 'temas/temas';
+@use 'base/tipografia';
+
+.visualmente-oculto {
+  @include visualmente-oculto;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: $ancho-maximo-contenido;
+  margin-inline: auto;
+  padding-inline: $espaciado-md;
+
+  @include desde-pantalla(tablet) {
+    padding-inline: $espaciado-lg;
+  }
+}
+
+.encabezado-pagina {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $espaciado-md;
+  margin-block-end: $espaciado-lg;
+
+  &__subtitulo {
+    margin-block-start: $espaciado-xs;
+    color: var(--color-texto-secundario);
+  }
+
+  &__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $espaciado-sm;
+  }
+}
+
+.mensaje-estado {
+  padding: $espaciado-sm $espaciado-md;
+  border-radius: $radio-borde;
+
+  &--error {
+    border: 1px solid var(--color-error);
+    background: var(--color-fondo-error);
+    color: var(--color-texto);
+  }
+}

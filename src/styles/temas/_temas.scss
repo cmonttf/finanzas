@@ -1,0 +1,66 @@
+// Colores que cambian con el tema (RF-13). Todos los pares texto/fondo cumplen
+// contraste WCAG AA (4.5:1 para texto normal, 3:1 para componentes de interfaz).
+
+:root,
+[data-tema='claro'] {
+  color-scheme: light;
+  --color-fondo: #f5f6f8;
+  --color-superficie: #ffffff;
+  --color-superficie-hover: #eef0f3;
+  --color-fondo-campo: #ffffff;
+  --color-texto: #1f2933;
+  --color-texto-secundario: #52606d;
+  --color-borde: #dde1e6;
+  --color-borde-fuerte: #7b8794;
+  --color-primario: #0b6e4f;
+  --color-primario-hover: #095c42;
+  --color-texto-sobre-primario: #ffffff;
+  --color-enlace: #0b6e4f;
+  --color-ingreso: #0b6e4f;
+  --color-gasto: #b42318;
+  --color-error: #b42318;
+  --color-fondo-error: #fef3f2;
+  --color-peligro: #b42318;
+  --color-peligro-hover: #912018;
+  --color-texto-sobre-peligro: #ffffff;
+  --color-foco: #2563eb;
+  --color-fondo-modal: rgb(15 23 42 / 55%);
+  --sombra-tarjeta: 0 1px 2px rgb(15 23 42 / 6%), 0 1px 3px rgb(15 23 42 / 8%);
+
+  // Series de gráficos (paleta categórica validada para daltonismo).
+  --grafico-serie-ingresos: #1baf7a;
+  --grafico-serie-gastos: #eb6834;
+  --grafico-grilla: #e4e7eb;
+  --grafico-texto: #52606d;
+}
+
+[data-tema='oscuro'] {
+  color-scheme: dark;
+  --color-fondo: #111827;
+  --color-superficie: #1f2937;
+  --color-superficie-hover: #2b3646;
+  --color-fondo-campo: #111827;
+  --color-texto: #f3f4f6;
+  --color-texto-secundario: #c0c7d1;
+  --color-borde: #374151;
+  --color-borde-fuerte: #8a94a3;
+  --color-primario: #34d399;
+  --color-primario-hover: #6ee7b7;
+  --color-texto-sobre-primario: #052e1f;
+  --color-enlace: #6ee7b7;
+  --color-ingreso: #34d399;
+  --color-gasto: #f97066;
+  --color-error: #f97066;
+  --color-fondo-error: #3b1d1d;
+  --color-peligro: #f97066;
+  --color-peligro-hover: #fda29b;
+  --color-texto-sobre-peligro: #2d0a07;
+  --color-foco: #93c5fd;
+  --color-fondo-modal: rgb(0 0 0 / 65%);
+  --sombra-tarjeta: 0 1px 2px rgb(0 0 0 / 40%);
+
+  --grafico-serie-ingresos: #199e70;
+  --grafico-serie-gastos: #d95926;
+  --grafico-grilla: #374151;
+  --grafico-texto: #c0c7d1;
+}
